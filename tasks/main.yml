@@ -1,5 +1,13 @@
 ---
-# tasks file for shared-apache-role
+- name: latest Apache version installed
+  yum:
+    name: httpd
+    state: latest
+- name: Apache enabled and running
+  service:
+    name: httpd
+    enabled: true
+    state: started
 - name: deploy content
   template:
     src: index.html.j2
